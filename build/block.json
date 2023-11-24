@@ -7,6 +7,11 @@
   "category": "widgets",
   "icon": "smiley",
   "description": "This is example of paragraph block",
+  "attributes": {
+    "content": {
+      "type": "string"
+    }
+  },
   "example": {},
   "supports": {
     "html": false
