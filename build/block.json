@@ -10,6 +10,9 @@
   "attributes": {
     "content": {
       "type": "string"
+    },
+    "textColor": {
+      "type": "string"
     }
   },
   "example": {},

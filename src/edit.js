@@ -12,7 +12,8 @@ import { __ } from '@wordpress/i18n';
  * @see https://developer.wordpress.org/block-editor/reference-guides/packages/packages-block-editor/#useblockprops
  */
 
-import { useBlockProps, RichText } from '@wordpress/block-editor';
+import { useBlockProps, InspectorControls, RichText } from '@wordpress/block-editor';
+import { PanelBody, PanelRow, ColorPalette } from '@wordpress/components';
 
 /**
  * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
@@ -30,16 +31,47 @@ import './editor.scss';
  *
  * @return {Element} Element to render.
  */
-export default function Edit({attributes: {content}, setAttributes}) {
+export default function Edit({attributes: {content, textColor, backgroundColor}, setAttributes}) {
 	function editContentHandler(newVal){
 		setAttributes({content: newVal});
 	}
 
 	return (
-		<RichText { ...useBlockProps() } 
+		<>
+
+		<InspectorControls>
+			<PanelBody title="Color Settings">
+					<p>Text Color</p>
+					<ColorPalette
+						colors={[
+							{name: 'red', color: '#f00'},
+							{name: 'white', color: '#fff'},
+							{name: 'blue', color: '#00f'}
+						]}
+						value={ textColor }
+						onChange={val => setAttributes({textColor: val})}
+					>
+					</ColorPalette>
+					<p>Background Color</p>
+					<ColorPalette
+						colors={[
+							{name: 'red', color: '#f00'},
+							{name: 'white', color: '#fff'},
+							{name: 'blue', color: '#00f'}
+						]}
+						value={ backgroundColor }
+						onChange={val => setAttributes({backgroundColor: val})}
+					>
+					</ColorPalette>
+			</PanelBody>
+		</InspectorControls>
+
+		<RichText { ...useBlockProps({ style: { color:textColor, backgroundColor: backgroundColor } }) } 
 		value={content}
 		tagName='p'
 		placeholder='Enter your text.'
 		onChange={editContentHandler}/>
+
+		</>
 	);
 }

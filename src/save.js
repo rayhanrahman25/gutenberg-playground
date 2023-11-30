@@ -15,9 +15,9 @@ import { useBlockProps, RichText } from '@wordpress/block-editor';
  *
  * @return {Element} Element to render.
  */
-export default function save({attributes: {content} }) {
+export default function save({attributes: {content, textColor, backgroundColor} }) {
 	return (
-		<RichText.Content { ...useBlockProps.save() }
+		<RichText.Content { ...useBlockProps.save({ style: { color:textColor, backgroundColor: backgroundColor } }) }
 		tagName='p'
 		value={content}
 		/>
