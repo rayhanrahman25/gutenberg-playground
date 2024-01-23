@@ -15,11 +15,14 @@ import { useBlockProps, RichText } from '@wordpress/block-editor';
  *
  * @return {Element} Element to render.
  */
-export default function save({attributes: {content, textColor, backgroundColor} }) {
+export default function save(props) {
 	return (
-		<RichText.Content { ...useBlockProps.save({ style: { color:textColor, backgroundColor: backgroundColor } }) }
-		tagName='p'
-		value={content}
-		/>
+		<div>
+			<RichText.Content
+				tagName='h2'
+				value={props.attributes.title}
+				style={{color: props.attributes.titleColor}}
+			/>
+		</div>
 	);
 }

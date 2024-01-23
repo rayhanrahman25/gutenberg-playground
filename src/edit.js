@@ -31,13 +31,7 @@ import './editor.scss';
  *
  * @return {Element} Element to render.
  */
-export default function Edit({attributes, setAttributes}) {
-
-	// "title": {
-	// 	"type": "string",
-	// 	"source": "html",
-	// 	"selector": "h2"
-	//   },
+export default function Edit({className,attributes, setAttributes}) {
 
 	return (
 		
@@ -47,6 +41,7 @@ export default function Edit({attributes, setAttributes}) {
 					placeholder='Enter giveway title'
 					value={attributes.title}
 					onChange={(title) => setAttributes( {title} )}
+					style={{color: attributes.titleColor}}
 				/>
 			</div>
 	);

@@ -56,44 +56,22 @@ __webpack_require__.r(__webpack_exports__);
  * @return {Element} Element to render.
  */
 function Edit({
-  attributes: {
-    content,
-    textColor
-  },
+  className,
+  attributes,
   setAttributes
 }) {
-  function editContentHandler(newVal) {
-    setAttributes({
-      content: newVal
-    });
-  }
-  return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.InspectorControls, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelBody, {
-    title: "Color Settings"
-  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelRow, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.ColorPalette, {
-    colors: [{
-      name: 'red',
-      color: '#f00'
-    }, {
-      name: 'white',
-      color: '#fff'
-    }, {
-      name: 'blue',
-      color: '#00f'
-    }],
-    value: textColor,
-    onChange: val => setAttributes({
-      textColor: val
-    })
-  })))), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.RichText, {
-    ...(0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.useBlockProps)({
-      style: {
-        color: textColor
-      }
+  return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: className
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.RichText, {
+    tagName: "h2",
+    placeholder: "Enter giveway title",
+    value: attributes.title,
+    onChange: title => setAttributes({
+      title
     }),
-    value: content,
-    tagName: "p",
-    placeholder: "Enter your text.",
-    onChange: editContentHandler
+    style: {
+      color: attributes.titleColor
+    }
   }));
 }
 
@@ -185,20 +163,14 @@ __webpack_require__.r(__webpack_exports__);
  *
  * @return {Element} Element to render.
  */
-function save({
-  attributes: {
-    content
-  }
-}) {
-  return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.RichText.Content, {
-    ..._wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.useBlockProps.save({
-      style: {
-        color: textColor
-      }
-    }),
-    tagName: "p",
-    value: content
-  });
+function save(props) {
+  return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.RichText.Content, {
+    tagName: "h2",
+    value: props.attributes.title,
+    style: {
+      color: props.attributes.titleColor
+    }
+  }));
 }
 
 /***/ }),
@@ -283,7 +255,7 @@ module.exports = window["wp"]["i18n"];
   \************************/
 /***/ ((module) => {
 
-module.exports = JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"create-block/paragraph","version":"0.1.0","title":"paragraph","category":"widgets","icon":"smiley","description":"This is example of paragraph block","attributes":{"content":{"type":"string"},"textColor":{"type":"string"}},"example":{},"supports":{"html":false},"textdomain":"gutenpride","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","viewScript":"file:./view.js"}');
+module.exports = JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"create-block/paragraph","version":"0.1.0","title":"paragraph","category":"widgets","icon":"smiley","description":"This is example of paragraph block","attributes":{"content":{"type":"string"},"textColor":{"type":"string"},"backgroundColor":{"type":"string"}},"example":{},"supports":{"html":false},"textdomain":"gutenpride","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","viewScript":"file:./view.js"}');
 
 /***/ })
 
