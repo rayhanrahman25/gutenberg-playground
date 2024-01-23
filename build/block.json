@@ -3,17 +3,75 @@
   "apiVersion": 3,
   "name": "create-block/paragraph",
   "version": "0.1.0",
-  "title": "paragraph",
+  "title": "Giveway Widget",
   "category": "widgets",
   "icon": "smiley",
   "description": "This is example of paragraph block",
   "attributes": {
+
     "content": {
       "type": "string"
     },
     "textColor": {
       "type": "string"
+    },
+    "title": {
+      "type": "string",
+      "source": "html",
+      "selector": "h2"
+    },
+    "titleColor": {
+      "type": "string",
+      "default":"#ddbe40"
+    },
+    "description": {
+      "type": "string",
+      "source": "html",
+      "selector": "p"
+    },
+    "descriptionColor": {
+      "type": "string",
+      "default":"#ddbe40"
+    },
+    "accounts": {
+      "type": "string",
+      "default":{
+        "twitter": false,
+        "tweet": false,
+        "youtube":false,
+        "facebook": false
+      }
+    },
+    "twitter": {
+      "type": "string",
+      "default" :{
+        "text": "",
+        "account": ""
+      }
+    },
+    "tweet":{
+      "type": "string",
+      "default":{
+        "text": "",
+        "message": "",
+        "url":""
+      }
+    },
+    "youtube":{
+      "type": "string",
+      "default":{
+        "text": "",
+        "url":""
+      }
+    },
+    "facebook":{
+      "type": "string",
+      "default":{
+        "text": "",
+        "url":""
+      }
     }
+
   },
   "example": {},
   "supports": {

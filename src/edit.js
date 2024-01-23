@@ -31,47 +31,23 @@ import './editor.scss';
  *
  * @return {Element} Element to render.
  */
-export default function Edit({attributes: {content, textColor, backgroundColor}, setAttributes}) {
-	function editContentHandler(newVal){
-		setAttributes({content: newVal});
-	}
+export default function Edit({attributes, setAttributes}) {
+
+	// "title": {
+	// 	"type": "string",
+	// 	"source": "html",
+	// 	"selector": "h2"
+	//   },
 
 	return (
-		<>
-
-		<InspectorControls>
-			<PanelBody title="Color Settings">
-					<p>Text Color</p>
-					<ColorPalette
-						colors={[
-							{name: 'red', color: '#f00'},
-							{name: 'white', color: '#fff'},
-							{name: 'blue', color: '#00f'}
-						]}
-						value={ textColor }
-						onChange={val => setAttributes({textColor: val})}
-					>
-					</ColorPalette>
-					<p>Background Color</p>
-					<ColorPalette
-						colors={[
-							{name: 'red', color: '#f00'},
-							{name: 'white', color: '#fff'},
-							{name: 'blue', color: '#00f'}
-						]}
-						value={ backgroundColor }
-						onChange={val => setAttributes({backgroundColor: val})}
-					>
-					</ColorPalette>
-			</PanelBody>
-		</InspectorControls>
-
-		<RichText { ...useBlockProps({ style: { color:textColor, backgroundColor: backgroundColor } }) } 
-		value={content}
-		tagName='p'
-		placeholder='Enter your text.'
-		onChange={editContentHandler}/>
-
-		</>
+		
+			<div className={className}>
+				<RichText
+					tagName='h2'
+					placeholder='Enter giveway title'
+					value={attributes.title}
+					onChange={(title) => setAttributes( {title} )}
+				/>
+			</div>
 	);
 }
