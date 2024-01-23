@@ -72,6 +72,13 @@ function Edit({
     style: {
       color: attributes.titleColor
     }
+  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.RichText, {
+    tagName: "p",
+    placeholder: "Enter giveway description",
+    value: attributes.description,
+    onChange: description => setAttributes({
+      description
+    })
   }));
 }
 
@@ -170,6 +177,9 @@ function save(props) {
     style: {
       color: props.attributes.titleColor
     }
+  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.RichText.Content, {
+    tagName: "p",
+    value: props.attributes.description
   }));
 }
 

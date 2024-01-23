@@ -23,6 +23,11 @@ export default function save(props) {
 				value={props.attributes.title}
 				style={{color: props.attributes.titleColor}}
 			/>
+
+			<RichText.Content
+					tagName='p'
+					value={props.attributes.description}
+			/>
 		</div>
 	);
 }

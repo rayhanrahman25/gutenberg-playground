@@ -43,6 +43,13 @@ export default function Edit({className,attributes, setAttributes}) {
 					onChange={(title) => setAttributes( {title} )}
 					style={{color: attributes.titleColor}}
 				/>
+
+				<RichText
+					tagName='p'
+					placeholder='Enter giveway description'
+					value={attributes.description}
+					onChange={(description) => setAttributes({description})}
+				/>
 			</div>
 	);
 }
